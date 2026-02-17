@@ -1,60 +1,16 @@
 import { NavLink } from "react-router-dom";
 
 function Sidebar() {
-  const linkClass =
-    "block py-2 px-4 rounded hover:bg-blue-100";
-
-  const activeClass =
-    "bg-blue-500 text-white";
-
   return (
-    <div className="w-64 bg-white shadow-md min-h-screen">
-      <h2 className="text-xl font-bold text-blue-600 p-6">
-        Admin
-      </h2>
+    <div className="w-64 min-h-screen bg-slate-900 text-white p-4">
+      <h1 className="text-xl font-bold mb-6">Admin Panel</h1>
 
-      <nav className="space-y-2 px-4 text-gray-700">
-        <NavLink to="/dashboard" className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : ""}`
-        }>
-          Dashboard
-        </NavLink>
-
-        <NavLink to="/icons" className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : ""}`
-        }>
-          Icons
-        </NavLink>
-
-        <NavLink to="/maps" className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : ""}`
-        }>
-          Maps
-        </NavLink>
-
-        <NavLink to="/profile" className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : ""}`
-        }>
-          User Profile
-        </NavLink>
-
-        <NavLink to="/tables" className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : ""}`
-        }>
-          Tables
-        </NavLink>
-
-        <NavLink to="/login" className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : ""}`
-        }>
-          Login
-        </NavLink>
-
-        <NavLink to="/register" className={({ isActive }) =>
-          `${linkClass} ${isActive ? activeClass : ""}`
-        }>
-          Register
-        </NavLink>
+      <nav className="space-y-3">
+        <NavLink to="/" className="block hover:text-blue-400">Dashboard</NavLink>
+        <NavLink to="/icons" className="block hover:text-blue-400">Icons</NavLink>
+        <NavLink to="/maps" className="block hover:text-blue-400">Maps</NavLink>
+        <NavLink to="/tables" className="block hover:text-blue-400">Tables</NavLink>
+        <NavLink to="/profile" className="block hover:text-blue-400">Profile</NavLink>
       </nav>
     </div>
   );

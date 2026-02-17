@@ -1,8 +1,22 @@
-function Navbar() {
+import { useNavigate } from "react-router-dom";
+
+function Navbar({ setIsAuth }) {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    setIsAuth(false);
+    navigate("/login");
+  };
+
   return (
-    <div className="h-16 bg-white shadow flex items-center px-6 justify-between">
-      <h1 className="text-xl font-semibold">Dashboard</h1>
-      <p className="text-sm text-gray-500">Priyanka Chaudhari</p>
+    <div className="flex justify-between items-center p-4 shadow">
+      <h2 className="font-semibold">Dashboard</h2>
+      <button
+        onClick={logout}
+        className="bg-red-500 text-white px-4 py-1 rounded"
+      >
+        Logout
+      </button>
     </div>
   );
 }

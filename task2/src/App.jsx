@@ -1,46 +1,53 @@
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useState } from "react";
+
 import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
 
 import Dashboard from "./pages/Dashboard";
 import Icons from "./pages/Icons";
 import Maps from "./pages/Maps";
-import UserProfile from "./pages/UserProfile";
 import Tables from "./pages/Tables";
+import UserProfile from "./pages/UserProfile";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Navbar from "./components/Navbar";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(false);
+
   return (
-      <div className="flex">
-      {/* Sidebar */}
-      <Sidebar />
+    <Routes>
+      {/* PUBLIC ROUTES */}
+      <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
+      <Route path="/register" element={<Register />} />
 
-      {/* Main Section */}
-      <div className="flex-1">
-        <Navbar />
-
-
-      <div className="flex-1 p-6">
-        <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/icons" element={<Icons />} />
-          <Route path="/maps" element={<Maps />} />
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="/tables" element={<Tables />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-        </div>
-      </div>
-    </div>
+      {/* PROTECTED ROUTES */}
+      {isAuth ? (
+        <Routegit
+          path="/"
+          element={
+            <div className="flex">
+              <Sidebar />
+              <div className="flex-1">
+                <Navbar setIsAuth={setIsAuth} />
+                <div className="p-6">
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/icons" element={<Icons />} />
+                    <Route path="/maps" element={<Maps />} />
+                    <Route path="/tables" element={<Tables />} />
+                    <Route path="/profile" element={<UserProfile />} />
+                  </Routes>
+                </div>
+              </div>
+            </div>
+          }
+        />
+      ) : (
+        <Route path="*" element={<Navigate to="/login" />} />
+      )}
+    </Routes>
   );
 }
 
-
 export default App;
-
-
-
-
