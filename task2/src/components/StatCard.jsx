@@ -1,18 +1,4 @@
-// function StatCard({ title, value }) {
-//   return (
-//     <div className="bg-sky-200 text-white p-6 rounded-xl shadow-md">
 
-//     {/* // <div className="bg-white p-5 rounded-xl shadow"> */}
-//       <p className="text-sm text-gray-400 uppercase">{title}</p>
-//       <h2 className="text-2xl font-bold">{value}</h2>
-//       <p className="text-sm text-green-500 mt-1">
-//         ↑ 3.48% <span className="text-gray-400">Since last month</span>
-//       </p>
-//     </div>
-//   );
-// }
-
-// export default StatCard;
 
 
 function StatCard({ title, value, percent, subtitle, icon, color }) {

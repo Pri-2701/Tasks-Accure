@@ -5,14 +5,7 @@ import OrdersChart from "../components/OrdersChart";
 function Dashboard() {
   return (
     <div className="space-y-6">
-      {/* STAT CARDS */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <StatCard title="Traffic" value="350,897" />
-        <StatCard title="New Users" value="2,356" />
-        <StatCard title="Sales" value="924" />
-        <StatCard title="Performance" value="49.65%" /> */}
-
-        {/* STAT CARDS */}
+    
         <div className="rounded-xl bg-sky-400 px-6 py-8">
 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
   <StatCard

@@ -11,6 +11,7 @@ function Sidebar() {
         <NavLink to="/maps" className="block hover:text-blue-400">Maps</NavLink>
         <NavLink to="/tables" className="block hover:text-blue-400">Tables</NavLink>
         <NavLink to="/profile" className="block hover:text-blue-400">Profile</NavLink>
+             <NavLink to="/register" className="block hover:text-blue-400">Register</NavLink>
       </nav>
     </div>
   );
