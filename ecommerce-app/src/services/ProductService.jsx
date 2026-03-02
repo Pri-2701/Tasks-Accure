@@ -18,3 +18,4 @@ export const products = [
     image: "https://cdn-icons-png.flaticon.com/512/1048/1048943.png",
   },
 ];
+
