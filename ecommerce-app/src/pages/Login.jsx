@@ -67,58 +67,60 @@ import { loginUser } from "../services/authService";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: "", password: "" });
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+
     try {
-      const user = await loginUser(form.email, form.password);
-      localStorage.setItem("user", JSON.stringify(user));
-      navigate("/"); // Redirect to Home
-       navigate("/cart");
-        navigate("/products");
+      const user = await loginUser(
+        email.trim(),
+        password.trim()
+      );
+
+      navigate("/home");
     } catch (err) {
       setError(err.message);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+    <div className="flex justify-center items-center h-screen">
+      <form
+        onSubmit={handleLogin}
+        className="bg-white p-8 shadow-lg rounded w-96"
+      >
+        <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
 
-        {error && <p className="text-red-500 mb-4">{error}</p>}
+        {error && <p className="text-red-500 mb-3">{error}</p>}
 
         <input
           type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
+          placeholder="Enter Email"
+          className="w-full border p-2 mb-3"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
-          className="w-full p-3 mb-4 border rounded"
         />
 
         <input
           type="password"
-          name="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
+          placeholder="Enter Password"
+          className="w-full border p-2 mb-3"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           required
-          className="w-full p-3 mb-6 border rounded"
         />
 
-        <button className="w-full bg-green-500 text-white py-3 rounded hover:bg-green-600 transition">
+        <button
+          type="submit"
+          className="w-full bg-green-600 text-white p-2 rounded"
+        >
           Login
         </button>
-
-        <p className="mt-4 text-center text-gray-600">
-          Don't have an account? <span className="text-blue-500 cursor-pointer" onClick={() => navigate("/register")}>Register</span>
-        </p>
       </form>
     </div>
   );

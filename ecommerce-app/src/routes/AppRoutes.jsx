@@ -40,12 +40,13 @@ import ProtectedRoute from "./ProtectedRoute";
 
 const AppRoutes = () => (
   <Routes>
-    {/* Landing page: first registration */}
-    <Route path="/" element={<Register />} />
+       
+    
+     {/* Public Routes */}
+   <Route path="/" element={<Register />} />
     <Route path="/login" element={<Login />} />
-    <Route path="/register" element={<Register />} />
 
-    {/* Protected pages: need login */}
+    {/* Protected Routes */}
     <Route
       path="/home"
       element={
@@ -54,6 +55,7 @@ const AppRoutes = () => (
         </ProtectedRoute>
       }
     />
+
     <Route
       path="/products"
       element={
@@ -62,6 +64,7 @@ const AppRoutes = () => (
         </ProtectedRoute>
       }
     />
+
     <Route
       path="/product/:id"
       element={
@@ -70,6 +73,7 @@ const AppRoutes = () => (
         </ProtectedRoute>
       }
     />
+
     <Route
       path="/cart"
       element={
@@ -78,6 +82,7 @@ const AppRoutes = () => (
         </ProtectedRoute>
       }
     />
+
     <Route
       path="/checkout"
       element={
@@ -87,9 +92,12 @@ const AppRoutes = () => (
       }
     />
 
-    {/* Catch all fallback */}
     <Route path="*" element={<Navigate to="/" />} />
   </Routes>
 );
 
 export default AppRoutes;
+
+
+
+
