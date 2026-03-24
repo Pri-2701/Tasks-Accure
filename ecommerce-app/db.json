@@ -1,9 +1,15 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Priyanka Chaudhari",
       "email": "pri27@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "eacc",
+      "name": "priyanka chaudhari",
+      "email": "pri271@gmail.com",
       "password": "123456"
     }
   ],
