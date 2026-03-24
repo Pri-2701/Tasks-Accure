@@ -1,11 +1,11 @@
 import React from "react";
-import city from "./assets/city.jpg";
+import cityImg from "./assets/cityImg.jpg";
 
 export default function App() {
   return (
     <div className="h-screen bg-gray-100 relative overflow-hidden"
      style={{
-        backgroundImage: `url(${city})`,
+        backgroundImage: `url(${cityImg})`,
       }}>
 
       
